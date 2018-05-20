@@ -1,0 +1,57 @@
+--- fido2-0.3.0/test/test_client.py.orig	2018-04-05 14:24:00.000000000 +0200
++++ fido2-0.3.0/test/test_client.py	2018-05-20 21:11:47.066881551 +0200
+@@ -29,8 +29,11 @@
+ 
+ from __future__ import absolute_import, unicode_literals
+ 
+-import mock
+ import unittest
++try:
++    import mock
++except:
++    from unittest import mock
+ from threading import Event
+ from binascii import a2b_hex
+ from fido2.utils import sha256, websafe_decode
+--- fido2-0.3.0/test/test_ctap1.py.orig	2018-04-05 14:24:00.000000000 +0200
++++ fido2-0.3.0/test/test_ctap1.py	2018-05-20 21:12:03.176881487 +0200
+@@ -31,7 +31,10 @@ from fido2.ctap1 import CTAP1, ApduError
+ from fido2.client import ClientData
+ from binascii import a2b_hex
+ import unittest
+-import mock
++try:
++    import mock
++except:
++    from unittest import mock
+ 
+ 
+ class TestCTAP1(unittest.TestCase):
+--- fido2-0.3.0/test/test_ctap2.py.orig	2018-04-12 17:10:24.000000000 +0200
++++ fido2-0.3.0/test/test_ctap2.py	2018-05-20 21:12:17.790214668 +0200
+@@ -37,7 +37,10 @@ from cryptography.hazmat.backends import
+ from cryptography.hazmat.primitives.asymmetric import ec
+ 
+ import unittest
+-import mock
++try:
++    import mock
++except:
++    from unittest import mock
+ 
+ _AAGUID = a2b_hex('F8A011F38C0A4D15800617111F9EDC7D')
+ _INFO = a2b_hex('a60182665532465f5632684649444f5f325f3002826375766d6b686d61632d7365637265740350f8a011f38c0a4d15800617111f9edc7d04a462726bf5627570f564706c6174f469636c69656e7450696ef4051904b0068101')  # noqa
+--- fido2-0.3.0/test/test_hid.py.orig	2018-04-05 14:24:00.000000000 +0200
++++ fido2-0.3.0/test/test_hid.py	2018-05-20 21:12:31.910214473 +0200
+@@ -30,7 +30,10 @@ from __future__ import absolute_import,
+ from fido2.ctap import CtapError
+ from fido2.hid import CtapHidDevice
+ import unittest
+-import mock
++try:
++    import mock
++except:
++    from unittest import mock
+ 
+ 
+ class HidTest(unittest.TestCase):
