@@ -7,8 +7,8 @@
 Summary:	Python 2 based FIDO 2.0 library
 Summary(pl.UTF-8):	Biblioteka FIDO 2.0 dla Pythona 2
 Name:		python-fido2
-Version:	0.7.3
-Release:	2
+Version:	0.8.1
+Release:	1
 # Yubico code is BSD licensed; includes also:
 # pyudf (Apache 2.0)
 # public suffix list (MPL 2.0)
@@ -16,7 +16,7 @@ License:	BSD, Apache v2.0, MPL v2.0
 Group:		Libraries/Python
 #Source0Download: https://github.com/Yubico/python-fido2/releases
 Source0:	https://github.com/Yubico/python-fido2/releases/download/%{version}/fido2-%{version}.tar.gz
-# Source0-md5:	43ce94c38f2fdd7ae1e3438e6aa01f8c
+# Source0-md5:	f691a99d1223ab00607d56430b27804e
 Patch0:		%{name}-mock.patch
 URL:		https://developers.yubico.com/python-fido2/
 BuildRequires:	rpm-pythonprov

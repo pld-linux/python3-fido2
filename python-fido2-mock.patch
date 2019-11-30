@@ -10,7 +10,7 @@
 +    import mock
 +except:
 +    from unittest import mock
- from threading import Event
+ from threading import Event, Timer
  from binascii import a2b_hex
  from fido2.utils import sha256, websafe_decode
 --- fido2-0.3.0/test/test_ctap1.py.orig	2018-04-05 14:24:00.000000000 +0200
