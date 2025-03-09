@@ -42,8 +42,8 @@ FIDO po USB, a także weryfikowania podpisów poświadczeń i zapewnień.
 
 %prep
 %setup -q -n fido2-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P 0 -p1
+%patch -P 1 -p1
 
 %build
 %py3_build
