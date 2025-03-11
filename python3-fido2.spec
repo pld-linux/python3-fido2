@@ -7,7 +7,7 @@ Summary(pl.UTF-8):	Biblioteka FIDO 2.0 dla Pythona 3
 Name:		python3-fido2
 # 1.1.1+ use poetry as buildsystem
 Version:	1.1.0
-Release:	3
+Release:	4
 # Yubico code is BSD licensed; includes also:
 # pyudf (Apache 2.0)
 # public suffix list (MPL 2.0)
