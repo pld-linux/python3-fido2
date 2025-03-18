@@ -6,8 +6,8 @@ Summary:	Python 3 based FIDO 2.0 library
 Summary(pl.UTF-8):	Biblioteka FIDO 2.0 dla Pythona 3
 Name:		python3-fido2
 # 1.1.1+ use poetry as buildsystem
-Version:	1.1.0
-Release:	4
+Version:	1.2.0
+Release:	1
 # Yubico code is BSD licensed; includes also:
 # pyudf (Apache 2.0)
 # public suffix list (MPL 2.0)
@@ -15,19 +15,19 @@ License:	BSD, Apache v2.0, MPL v2.0
 Group:		Libraries/Python
 #Source0Download: https://github.com/Yubico/python-fido2/releases
 Source0:	https://github.com/Yubico/python-fido2/releases/download/%{version}/fido2-%{version}.tar.gz
-# Source0-md5:	ee9c06204d6eac131b4f7ca6360b0090
-Patch0:		fido2-ctap2.patch
-Patch1:		fido2-cryptography.patch
+# Source0-md5:	7abb158668df47e7ae51493c363d9165
 URL:		https://developers.yubico.com/python-fido2/
-BuildRequires:	python3-modules >= 1:3.7
-BuildRequires:	python3-setuptools
+BuildRequires:	python3-build
+BuildRequires:	python3-installer
+BuildRequires:	python3-modules >= 1:3.8
+BuildRequires:	python3-poetry-core >= 1.0.0
 %if %{with tests}
 BuildRequires:	python3-cryptography >= 2.6
-BuildRequires:	python3-cryptography < 43
+BuildRequires:	python3-cryptography < 45
 %endif
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
-Requires:	python3-modules >= 1:3.7
+BuildRequires:	rpmbuild(macros) >= 2.044
+Requires:	python3-modules >= 1:3.8
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,11 +42,9 @@ FIDO po USB, a także weryfikowania podpisów poświadczeń i zapewnień.
 
 %prep
 %setup -q -n fido2-%{version}
-%patch -P 0 -p1
-%patch -P 1 -p1
 
 %build
-%py3_build
+%py3_build_pyproject
 
 %if %{with tests}
 %{__python3} -m unittest discover -s tests
@@ -55,7 +53,7 @@ FIDO po USB, a także weryfikowania podpisów poświadczeń i zapewnień.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py3_install
+%py3_install_pyproject
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/python3-fido2-%{version}
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/python3-fido2-%{version}
@@ -67,5 +65,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc COPYING NEWS README.adoc
 %{py3_sitescriptdir}/fido2
-%{py3_sitescriptdir}/fido2-%{version}-py*.egg-info
+%{py3_sitescriptdir}/fido2-%{version}.dist-info
 %{_examplesdir}/python3-fido2-%{version}
