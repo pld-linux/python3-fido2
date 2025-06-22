@@ -6,7 +6,7 @@ Summary:	Python 3 based FIDO 2.0 library
 Summary(pl.UTF-8):	Biblioteka FIDO 2.0 dla Pythona 3
 Name:		python3-fido2
 # 1.1.1+ use poetry as buildsystem
-Version:	1.2.0
+Version:	2.0.0
 Release:	1
 # Yubico code is BSD licensed; includes also:
 # pyudf (Apache 2.0)
@@ -15,19 +15,19 @@ License:	BSD, Apache v2.0, MPL v2.0
 Group:		Libraries/Python
 #Source0Download: https://github.com/Yubico/python-fido2/releases
 Source0:	https://github.com/Yubico/python-fido2/releases/download/%{version}/fido2-%{version}.tar.gz
-# Source0-md5:	7abb158668df47e7ae51493c363d9165
+# Source0-md5:	2f3a157e28808c7a34d6ddd88db0aa5d
 URL:		https://developers.yubico.com/python-fido2/
 BuildRequires:	python3-build
 BuildRequires:	python3-installer
-BuildRequires:	python3-modules >= 1:3.8
-BuildRequires:	python3-poetry-core >= 1.0.0
+BuildRequires:	python3-modules >= 1:3.10
+BuildRequires:	python3-poetry-core >= 2.0.0
 %if %{with tests}
 BuildRequires:	python3-cryptography >= 2.6
-BuildRequires:	python3-cryptography < 45
+BuildRequires:	python3-cryptography < 48
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 2.044
-Requires:	python3-modules >= 1:3.8
+Requires:	python3-modules >= 1:3.10
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
